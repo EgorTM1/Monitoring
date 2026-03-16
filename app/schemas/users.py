@@ -26,7 +26,7 @@ class UserGet(UserAdd):
 class UserUpdate(BaseModel):
     first_name: str | None = Field(default=None, max_length=50)
     last_name: str | None = Field(default=None, max_length=50)
-    age: int | None = Field(ge=16)
+    age: int | None = Field(default=None, ge=16)
     bio: str | None = None
     username: str | None = Field(None, max_length=50, description='Username пользователя должен быть уникальным', examples=['ivan_ivanov'])
     email: EmailStr | None = Field(None, description='Email пользователя должен быть уникальным', examples=['ivan@mail.ru'])
