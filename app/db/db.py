@@ -5,7 +5,7 @@ from app.settings import settings
 
 engine = create_async_engine(
     url=settings.get_dsn,
-    echo=True
+    echo=False
 )
 
 session_factory = async_sessionmaker(
