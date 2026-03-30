@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from app.api import users, posts, comments, seed_database_sqlalchemy
 from app.db import engine, Base
+from app.monitoring import setup_metrics
 
 import uvicorn
 
@@ -26,6 +27,7 @@ app = FastAPI(
     title='Blog API', description='API for blog app', version='0.0.1', lifespan=lifespan
 )
 
+setup_metrics(app)
 
 @app.get('/', tags=['Root'])
 async def root():
